@@ -1,0 +1,23 @@
+version: '3'
+services:
+  creditcard-app:
+    container_name: creditcard-app
+    image: roshanramesh/creditcard_app
+    restart: always
+    ports:
+      - "10566:9090"
+    depends_on:
+      - identity-app
+      - creditscore-app
+  identity-app:
+    container_name: identity-app
+    image: roshanramesh/identity_app
+    restart: always
+    ports:
+      - "10588:9091"
+  creditscore-app:
+    container_name: creditscore-app
+    image: roshanramesh/creditscore_app
+    restart: always
+    ports:
+      - "10577:9092"
